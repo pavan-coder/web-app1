@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .divide{
+        display: grid;
+        grid-template-columns: 1fr 0.3fr;
+    }
+</style>
+
+  
+
+<div class="divide">
+        
+
+    <div>
+        <h3>map</h3>
+    </div>
+
+    <div>
+        <div>
+            {% for room in rooms %}
+            <div>
+                <button id='propertycardbig1' class='propertycardbig1'>
+                    <!---->
+                    <div id='frame28' class='frame28'>
+                    <h5> {{room.id}} Tenant name :<a href="{% url 'room' room.id %}">{{room.tenant}}</a> </h5>
+                    <h5>address
+                        <address>
+                            <a href={{room.address}}>{{room.address}}</a>
+                        </address> 
+                    </h5>
+                    </div>
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+</div>
+
+{% endblock content %}
