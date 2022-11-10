@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 # Create your views here.
 
@@ -56,4 +57,14 @@ def delete_tenant_room(request,pk):
         room.delete()
         return redirect('home')
     return render(request, 'base/delete.html', {'obj':room})
+
+def user_login_page(request):
+    if request.method == 'POST':
+        mobile_no = request.POST.get('mobile number')
+        password = request.POST.get('password')        
+        #try:
+            #user = User.objects.get(mobile_no=mobile_no)
+        
+    context ={}
+    return render(request, "base/create_post_form.html",context)
     

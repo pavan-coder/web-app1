@@ -6,11 +6,18 @@ from django.contrib.auth.models import User
 
 
 class tenant_Room(models.Model):
-    tenant_name =models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    Total_amount=models.IntegerField(null=False,blank=False)
+    amount_per_head=models.IntegerField(null=False,blank=False)
+    House_photos = models.ImageField(null = True)
+    #max_members=
     address = models.TextField(null=False,blank=False)
-    city = models.CharField(_(""), max_length=50)
+    city = models.CharField( max_length=70,blank=False)
+    state =models.CharField(max_length=70,blank=False)
+    country = models.CharField(max_length=40,blank=False)
     updated = models.DateTimeField(auto_now =True)
     created = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return self.tenant 
+        return self.address 
+
+class 
